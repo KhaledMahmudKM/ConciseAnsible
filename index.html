@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concise Ansible Book</title>
+   <script src="js/globals.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+ 
+ <!-- Highlight.js CSS theme -->
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css" integrity="sha512-BrOPA520KmDMqieeM7XFe6a3u3Sb3F1JBaQnrIAmWg3EYrciJ+Qqe6ZcKCdfPv26rGcgTrJnZ/IdQEct8h3Zhw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="css/style.css" />
+<!-- Load libraries -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+<!-- Initialize Highlight.js -->
+<script>
+  // Configure marked to use highlight.js
+  marked.setOptions({
+    highlight: function(code, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        return hljs.highlight(code, { language: lang }).value;
+      } else {
+        return hljs.highlightAuto(code).value;
+      }
+    }
+  });
+
+</script>
+
+<!-- Load MathJax -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <h1>Concise Ansible Book</h1>
+    </header>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Chapters</h2>
+      <ul>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter01.md'); return false;">1. Introduction to Ansible</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter02.md'); return false;">2. Installing and Setting Up Ansible</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter03.md'); return false;">3. Core Ansible Concepts</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter04.md'); return false;">4. Inventory Management</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter05.md'); return false;">5. Playbooks</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter06.md'); return false;">6. Modules</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter07.md'); return false;">7. Variables and Facts</a></li>       
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter08.md'); return false;">8. Templates and Jinja2</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter09.md'); return false;">9. Handlers and Notifications</li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter10.md'); return false;">10. Loops, Conditionals, and Error Handling</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter11.md'); return false;">11. Roles, Project Structure, and Ansible Galaxy</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter12.md'); return false;">12. Advanced Playbook Techniques</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter13.md'); return false;">13. Ansible Vault and Security</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter14.md'); return false;">14. Real-World Examples of Ansible Automation</a></li>
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter15.md'); return false;">15. Ansible for Cloud Automation</a></li>  
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter16.md'); return false;">16. Ansible with Containers and Docker</a></li>          
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter17.md'); return false;">17. Ansible with Kubernetes</a></li>  
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter18.md'); return false;">18. Networking Automation</a></li>           
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter19.md'); return false;">19. VLAN Automation</a></li> 
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter20.md'); return false;">20. OSPF Automation and Interface Templates</a></li>  
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter21.md'); return false;">21. BGP Automation</a></li>  
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter22.md'); return false;">22. Ansible Best Practices and Optimization</a></li>                          
+        <li><a href="#" onclick="loadMarkdown('chapters/Chapter23.md'); return false;">23. Troubleshooting and Debugging Ansible</a></li>        
+        <li><a href="#" onclick="loadMarkdown('chapters/conclusion.md'); return false;">Conclusion</a></li>        
+        <li><a href="#" onclick="loadMarkdown('chapters/glossary.md'); return false;">Glossary</a></li>
+      </ul>
+    </aside>
+
+    <main class="content markdown-body" id="content">
+      <h1>Concise Ansible Book</h1>
+      <p>Select a chapter from the menu to view the contents.</p>
+      <img src="tangle.jpeg" style="width:600px;">
+    </main>
+  </div>
+  <footer class="footer">
+    <p><script>document.write(km_copyright);</script></p>
+  </footer>
+</div>
+
+  <!-- Script to load and display markdown -->
+  <script src="js/main.js">
+
+  </script>
+
+</body>
+</html>
+
+
