@@ -1,10 +1,10 @@
-# 19. VLAN Automation
+# VLAN Automation
 
 This chapter focuses on automating VLAN creation, modification, and assignment using Ansible on network devices such as Cisco IOS switches.
 
 ---
 
-## 19.1 Introduction
+## Introduction
 
 VLANs are foundational to network segmentation. Using Ansible, you can:
 - Create VLANs
@@ -14,7 +14,7 @@ VLANs are foundational to network segmentation. Using Ansible, you can:
 
 ---
 
-### 19.2 Basic VLAN Creation (Cisco IOS)
+## Basic VLAN Creation (Cisco IOS)
 
 ```yaml
 - name: Create VLANs on Cisco switch
@@ -25,7 +25,8 @@ VLANs are foundational to network segmentation. Using Ansible, you can:
       - vlan 20
       - name Engineering
 ```
-### 19.3 Creating Multiple VLANs with Loops
+---
+## Creating Multiple VLANs with Loops
 
 - Use loops to automate multiple VLANs:
 ```yaml
@@ -41,7 +42,8 @@ VLANs are foundational to network segmentation. Using Ansible, you can:
 ```
 This method is scalable and template-friendly.
 
-### 19.4 Assign VLAN to Interfaces
+---
+## Assign VLAN to Interfaces
 ```yaml
 - name: Assign VLAN 10 to interface
   cisco.ios.ios_config:
@@ -50,7 +52,9 @@ This method is scalable and template-friendly.
       - switchport mode access
       - switchport access vlan 10
 ```
-### 19.5 Assigning VLANs to Multiple Interfaces
+
+---
+## Assigning VLANs to Multiple Interfaces
 - Loop for multiple interfaces:
 ```yaml
 - name: Assign VLANs to multiple interfaces

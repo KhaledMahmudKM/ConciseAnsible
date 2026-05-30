@@ -1,11 +1,11 @@
-# 11. Roles, Project Structure, and Ansible Galaxy
+# Roles, Project Structure, and Ansible Galaxy
 
 As Ansible projects grow, organizing playbooks, tasks, and variables becomes essential.  
 Roles provide a standard way to structure reusable automation components, and Ansible Galaxy allows sharing and reusing roles.
 
 ---
 
-# 11.1 What Is a Role?
+## What Is a Role?
 
 A **role** is a collection of tasks, variables, handlers, templates, and files that automate a specific function, like setting up a web server or database.
 
@@ -18,13 +18,7 @@ A **role** is a collection of tasks, variables, handlers, templates, and files t
 
 ---
 
-# 11.2 Standard Role Directory Structure
-
-
-
----
-
-# 11.2 Standard Role Directory Structure
+## Standard Role Directory Structure
 ```
 roles/
 └── webserver/
@@ -55,7 +49,7 @@ roles/
 
 ---
 
-# 11.3 Creating a Role
+## Creating a Role
 
 Use `ansible-galaxy` to scaffold a role:
 
@@ -65,7 +59,9 @@ ansible-galaxy init webserver
 
 This creates the standard directory structure automatically.
 
-## 11.4 Using a Role in a Playbook
+---
+
+## Using a Role in a Playbook
 
 Example playbook using the webserver role:
 ```yaml
@@ -83,7 +79,10 @@ roles:
   - webserver
   - monitoring
 ```
-## 11.5 Role Variables
+
+---
+
+## Role Variables
 
 Variables can be defined in:
 - `defaults/main.yml` – default, lowest precedence
@@ -96,7 +95,8 @@ nginx_port: 80
 server_name: localhost
 ```
 
-## 11.6 Role Dependencies
+---
+## Role Dependencies
 
 Roles can depend on other roles.
 Define dependencies in meta/main.yml:
@@ -108,12 +108,14 @@ dependencies:
 
 When the role runs, dependencies run first.
 
-## 11.7 Ansible Galaxy
+---
+
+## Ansible Galaxy
 
 Ansible Galaxy is a hub for sharing roles and collections.
 It allows you to reuse community roles or share your own.
 
-### 11.7.1 Searching for Roles
+### Searching for Roles
 
 Use the CLI:
 ```bash
@@ -127,13 +129,13 @@ Search results include:
 - Supported platforms
 - Galaxy rating
 
-### 11.7.2 Installing Roles from Galaxy
+### Installing Roles from Galaxy
 
 Install a role:
 ```bash
 ansible-galaxy install -p ./roles geerlingguy.nginx
 ```
-### 11.7.3 Creating and Sharing Your Own Role
+### Creating and Sharing Your Own Role
 
 1. Scaffold role:
 ```bash
@@ -146,8 +148,9 @@ ansible-galaxy init myrole
 ```bash
 ansible-galaxy role import <GitHub_username>/<repository>
 ```
+---
 
-## 11.8 Best Practices for Roles
+## Best Practices for Roles
 
 - Keep tasks simple and focused
 - Use handlers for service changes
@@ -158,6 +161,8 @@ ansible-galaxy role import <GitHub_username>/<repository>
 - Document roles in `README.md`
 - Use semantic versioning
 - Test roles before sharing
+
+---
 
 ## Summary
 

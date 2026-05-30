@@ -1,4 +1,4 @@
-# 7. Variables and Facts
+# Variables and Facts
 
 Variables make Ansible flexible and reusable.  
 Facts provide system information gathered automatically from managed hosts.
@@ -7,7 +7,7 @@ Together, they enable dynamic, intelligent automation.
 
 ---
 
-# 7.1 What Are Variables?
+## What Are Variables?
 
 Variables store values that you want to reuse or parameterize in playbooks.
 
@@ -27,17 +27,17 @@ Use them:
 
 ---
 
-# 7.2 Where to Define Variables
+## Where to Define Variables
 
 Variables can be defined in multiple places.
 
-## 1. In a Playbook
+### 1. In a Playbook
 ```yaml
 vars:
   app_port: 8080
 ```
 
-## 2. In a `vars_files` file
+### 2. In a `vars_files` file
 Playbook:
 ```yaml
 vars_files:
@@ -48,13 +48,13 @@ vars_files:
 app_name: myapp
 ```
 
-## 3. In Inventory (INI)
+### 3. In Inventory (INI)
 ```ini
 [web]
 web1 app_env=prod
 ```
 
-## 4. In Inventory (YAML)
+### 4. In Inventory (YAML)
 ```yaml
 web:
   hosts:
@@ -62,7 +62,7 @@ web:
       app_env: prod
 ```
 
-## 5. In `group_vars/` and `host_vars/` directories
+### 5. In `group_vars/` and `host_vars/` directories
 Recommended for large projects.
 
 Example directory:
@@ -84,14 +84,14 @@ deploy_env: production
 hostname: web1-prod
 ```
 
-## 6. Extra vars (highest priority)
+### 6. Extra vars (highest priority)
 ```bash
 ansible-playbook site.yml -e "version=2.1"
 ```
 
 ---
 
-# 7.3 Variable Precedence (Important)
+## Variable Precedence (Important)
 
 Variable sources override each other.
 
@@ -108,7 +108,7 @@ Variable sources override each other.
 
 ---
 
-# 7.4 Using Variables Safely
+## Using Variables Safely
 
 ### Avoid undefined variable errors:
 ```yaml
@@ -127,7 +127,7 @@ when: enable_service | bool
 
 ---
 
-# 7.5 Facts: Automatically Collected System Information
+## Facts: Automatically Collected System Information
 
 Ansible gathers system info from managed hosts when a play starts.
 
@@ -159,7 +159,7 @@ when: ansible_facts.os_family == "Debian"
 
 ---
 
-# 7.6 Disabling Fact Gathering (Optional)
+## Disabling Fact Gathering (Optional)
 
 To speed up playbook runs:
 ```yaml
@@ -174,7 +174,7 @@ Gather manually:
 
 ---
 
-# 7.7 Custom Facts
+## Custom Facts
 
 You can define your own facts on the managed host.
 
@@ -197,7 +197,7 @@ Access it:
 
 ---
 
-# 7.8 Registered Variables (Capturing Task Output)
+## Registered Variables (Capturing Task Output)
 
 Use `register:` to store results of a command or module.
 
@@ -226,7 +226,7 @@ Example with command:
 
 ---
 
-# 7.9 The `debug` Module (Essential for Variables)
+## The `debug` Module (Essential for Variables)
 
 To print variables:
 ```yaml
@@ -242,7 +242,7 @@ Or print a message:
 
 ---
 
-# 7.10 Best Practices
+## Best Practices
 
 - Use meaningful variable names  
 - Keep environment variables in `group_vars/`  
@@ -253,7 +253,7 @@ Or print a message:
 
 ---
 
-# Summary
+## Summary
 
 Variables make playbooks flexible and reusable.  
 Facts give you a real-time picture of each system.  

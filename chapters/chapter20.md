@@ -1,10 +1,10 @@
-# 20. OSPF Automation and Interface Templates
+# OSPF Automation and Interface Templates
 
 This chapter covers **automating OSPF configurations** and using **Jinja2 templates** for network interfaces to simplify repetitive tasks across multiple devices.
 
 ---
 
-## 20.1 Introduction
+## Introduction
 
 - OSPF is a widely used dynamic routing protocol.  
 - Manual configuration on multiple routers is **error-prone**.  
@@ -12,9 +12,9 @@ This chapter covers **automating OSPF configurations** and using **Jinja2 templa
 
 ---
 
-## 20.2 OSPF Automation Basics
+## OSPF Automation Basics
 
-### 20.2.1 Cisco IOS Example
+### Cisco IOS Example
 
 ```yaml
 - name: Configure OSPF on Cisco routers
@@ -27,7 +27,8 @@ This chapter covers **automating OSPF configurations** and using **Jinja2 templa
 - Defines OSPF process `1` and advertises multiple networks.
 - Can be extended with loops for multiple routers or areas.
 
-## 20.3 Using Loops for OSPF Networks
+---
+## Using Loops for OSPF Networks
 ```yaml
 - name: Configure OSPF networks dynamically
   cisco.ios.ios_config:
@@ -39,11 +40,12 @@ This chapter covers **automating OSPF configurations** and using **Jinja2 templa
 ```
 - Makes the playbook flexible and maintainable.
 
-## 20.4 Interface Templates with Jinja2
+---
+## Interface Templates with Jinja2
 
 Templates allow generating consistent interface configurations across multiple devices.
 
-### 20.4.1 Template Example (`interface.j2`)
+### Template Example (`interface.j2`)
 ```jinja
 interface {{ interface.name }}
  description {{ interface.description }}
@@ -64,7 +66,7 @@ interfaces:
     mask: 255.255.255.0
 ```
 
-### 20.4.2 Deploying Interface Templates
+### Deploying Interface Templates
 ```yaml
 - name: Deploy interface configuration from template
   template:
@@ -78,7 +80,8 @@ interfaces:
 - Ensures uniform configuration across devices.
 - Supports scaling to dozens of interfaces without copy-paste errors.
 
-## 20.5 Combining OSPF and Interface Templates
+---
+## Combining OSPF and Interface Templates
 ```yaml
 - hosts: routers
   become: yes
@@ -105,7 +108,8 @@ interfaces:
 - Combines interface setup and OSPF routing in a single playbook.
 - Variables (`interfaces`, `ospf_networks`) make automation flexible for different devices or topologies.
 
-## 20.6 Best Practices
+---
+## Best Practices
 
 - Maintain separate templates for interfaces, routing, and VLANs.
 - Store device-specific variables in `host_vars`.
@@ -113,6 +117,7 @@ interfaces:
 - Test in lab environment before production deployment.
 - Use idempotent modules to prevent accidental changes.
 
+---
 ## Summary
 
 - Ansible enables automated OSPF routing across multiple devices.

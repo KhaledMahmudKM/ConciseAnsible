@@ -4,7 +4,7 @@ Congratulations! You have completed the journey through Ansible, from basics to 
 
 ---
 
-## 22.1 Key Takeaways
+## Key Takeaways
 
 - **Ansible Basics** – Inventory, ad-hoc commands, and modules  
 - **Playbooks** – Declarative YAML-based automation  
@@ -19,7 +19,7 @@ Congratulations! You have completed the journey through Ansible, from basics to 
 
 ---
 
-## 22.2 Best Practices Recap
+## Best Practices Recap
 
 - Keep playbooks modular using **roles**  
 - Use **variables, defaults, and vaults** for flexibility and security  
@@ -30,7 +30,7 @@ Congratulations! You have completed the journey through Ansible, from basics to 
 
 ---
 
-## 22.3 Next Steps
+## Next Steps
 
 - **Hands-on practice:** Apply Ansible in your lab or production environment  
 - **Explore advanced modules:** Networking, database, and cloud provider modules  

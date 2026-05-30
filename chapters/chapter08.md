@@ -1,11 +1,11 @@
-# 8. Templates and Jinja2
+# Templates and Jinja2
 
 Ansible uses **Jinja2 templates** to dynamically generate configuration files, scripts, and other text-based files.  
 Templates allow you to use variables, conditionals, loops, and filters to customize files for each host.
 
 ---
 
-# 8.1 What Are Templates?
+## What Are Templates?
 
 Templates are text files with placeholders for dynamic content, usually ending with `.j2`.  
 They are processed by Ansible using **Jinja2** and rendered on the target host.
@@ -27,7 +27,7 @@ server {
 
 ---
 
-# 8.2 Using the `template` Module
+## Using the `template` Module
 
 Copy and render a template from your control node to managed hosts:
 ```yaml
@@ -48,7 +48,7 @@ Copy and render a template from your control node to managed hosts:
 
 ---
 
-# 8.3 Jinja2 Basics
+## Jinja2 Basics
 
 ### Variables
 ```
@@ -80,7 +80,7 @@ server_name {{ host }};
 
 ---
 
-# 8.4 Using Facts in Templates
+## Using Facts in Templates
 
 Example:
 ```
@@ -93,7 +93,7 @@ Facts let templates adapt automatically to each host.
 
 ---
 
-# 8.5 Combining Templates with Handlers
+## Combining Templates with Handlers
 
 Templates often trigger service reloads:
 ```yaml
@@ -112,7 +112,7 @@ handlers:
 
 ---
 
-# 8.6 Filters and Built-in Functions
+## Filters and Built-in Functions
 
 Some common filters:
 
@@ -127,7 +127,7 @@ Some common filters:
 
 ---
 
-# 8.7 Best Practices
+## Best Practices
 
 - Keep templates simple and readable  
 - Use variables and facts, not hardcoded values  

@@ -1,4 +1,4 @@
-# 5. Playbooks
+# Playbooks
 
 A **playbook** is the core of Ansible automation.  
 It describes *what* you want to configure, install, or run on your systems—written in simple, human-readable **YAML**.
@@ -7,7 +7,7 @@ Playbooks → contain **plays** → which run **tasks** → using **modules**.
 
 ---
 
-## 5.1 What Is a Playbook?
+## What Is a Playbook?
 
 A playbook tells Ansible:
 
@@ -28,8 +28,8 @@ Example structure:
         name: nginx
         state: present
 ```
-
-## 5.2 Anatomy of a Playbook
+---
+## Anatomy of a Playbook
 
 A playbook consists of one or more **plays**.
 
@@ -53,7 +53,8 @@ A play contains:
 | **become**   | Privilege escalation           |
 | **roles**    | Reusable configuration bundles |
 
-## 5.3 Tasks
+---
+## Tasks
 
 Tasks are executed in order, one by one.
 
@@ -75,7 +76,8 @@ tasks:
 Each task uses a **module**.
 Modules do the real work: install packages, copy files, manage services…
 
-## 5.4 Handlers
+---
+## Handlers
 
 Handlers run only when notified by tasks.
 
@@ -97,7 +99,8 @@ handlers:
 ```
 Handlers prevent unnecessary restarts.
 
-## 5.5 Variables in Playbooks
+---
+## Variables in Playbooks
 
 Variables can be defined:
 
@@ -117,7 +120,8 @@ vars_files:
   - vars/common.yml
 ```
 
-## 5.6 Conditionals
+---
+## Conditionals
 
 Use when: to run tasks only when conditions match.
 ```yaml
@@ -128,7 +132,8 @@ Use when: to run tasks only when conditions match.
   when: ansible_facts.os_family == "Debian"
 ```
 
-## 5.7 Loops
+---
+## Loops
 
 Run a task multiple times using loops.
 
@@ -142,7 +147,8 @@ Run a task multiple times using loops.
     - curl
     - unzip
 ```
-## 5.8 Tags
+---
+## Tags
 
 Tags let you run specific parts of a playbook.
 
@@ -165,7 +171,9 @@ Run only the config task:
 ```bash
 ansible-playbook web.yml --tags config
 ```
-## 5.9 Multiple Plays in One Playbook
+
+---
+## Multiple Plays in One Playbook
 
 You can target different host groups in one file.
 
@@ -186,7 +194,9 @@ You can target different host groups in one file.
         name: php
         state: present
 ```
-## 5.10 Best Practices for Playbooks
+
+---
+## Best Practices for Playbooks
 
 - Keep playbooks short and readable
 - Use variables instead of hardcoding values
@@ -196,6 +206,7 @@ You can target different host groups in one file.
 - Use become: yes only when needed
 - Test with --check (dry run mode)
 
+---
 ## Summary
 
 A playbook is the foundational building block in Ansible.

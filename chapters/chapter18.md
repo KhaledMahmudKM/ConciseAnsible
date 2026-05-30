@@ -1,10 +1,10 @@
-# 18. Networking Automation
+# Networking Automation
 
 Ansible is widely used to automate **network configuration, management, and monitoring** across multiple devices and vendors. This chapter covers concepts, modules, and best practices for networking automation.
 
 ---
 
-## 18.1 Introduction
+## Introduction
 
 - Networking automation reduces **manual configuration errors**.  
 - Ansible supports many network devices: Cisco, Juniper, Arista, Huawei, etc.  
@@ -12,7 +12,7 @@ Ansible is widely used to automate **network configuration, management, and moni
 
 ---
 
-## 18.2 Networking Modules Overview
+## Networking Modules Overview
 
 Ansible provides **network-specific modules**, often prefixed by the vendor:
 
@@ -28,7 +28,7 @@ Ansible provides **network-specific modules**, often prefixed by the vendor:
 
 ---
 
-## 18.3 Gathering Facts
+## Gathering Facts
 
 Use modules to collect information about network devices:
 
@@ -39,7 +39,8 @@ Use modules to collect information about network devices:
 - Facts include hostname, interfaces, IP addresses, and OS version.
 - Facts can be used in conditional tasks.
 
-## 18.4 Configuring Interfaces
+---
+## Configuring Interfaces
 
 Example: Configure an interface on a Cisco IOS device:
 ```yaml
@@ -53,7 +54,8 @@ Example: Configure an interface on a Cisco IOS device:
 ```
 - Ensures idempotent interface configuration.
 
-## 18.5 VLAN Management
+---
+## VLAN Management
 
 Example: Create VLANs on switches:
 ```yaml
@@ -75,8 +77,8 @@ Example: Create VLANs on switches:
     - { id: 10, name: Sales }
     - { id: 20, name: Engineering }
 ```
-
-## 18.6 Managing Routing
+---
+## Managing Routing
 
 Example: Configure static routes:
 ```yaml
@@ -87,7 +89,8 @@ Example: Configure static routes:
 ```
 Use BGP or OSPF modules for dynamic routing configurations.
 
-## 18.7 Using Templates
+---
+## Using Templates
 
 Jinja2 templates allow generating complex configurations:
 ```yaml
@@ -98,7 +101,8 @@ Jinja2 templates allow generating complex configurations:
 ```
 - Useful for multi-device deployment with consistent naming and addressing.
 
-## 18.8 Error Handling and Rollback
+---
+## Error Handling and Rollback
 
 - Use `rollback` features on supported modules.
 - Use `block` and `rescue` to handle failures:
@@ -111,8 +115,8 @@ Jinja2 templates allow generating complex configurations:
     - debug:
         msg: "Configuration failed, rolling back."
 ```
-
-## 18.9 Best Practices
+---
+## Best Practices
 
 - Test configurations in a lab or virtual environment first.
 - Use idempotent tasks to avoid accidental overwrites.
@@ -120,6 +124,7 @@ Jinja2 templates allow generating complex configurations:
 - Organize network roles by vendor and function (interfaces, VLANs, routing).
 - Use facts gathering to dynamically adjust configurations.
 
+---
 ## Summary
 
 - Ansible enables automated network management across vendors.

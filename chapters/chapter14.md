@@ -1,10 +1,10 @@
-# 14. Real-World Examples of Ansible Automation
+# Real-World Examples of Ansible Automation
 
 To solidify your understanding, this chapter provides practical, real-world scenarios where Ansible is used to automate IT tasks.
 
 ---
 
-## 14.1 Web Server Deployment
+## Web Server Deployment
 
 **Objective:** Automate the deployment of a web server with Nginx.
 
@@ -19,7 +19,8 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - `common` role installs utilities and updates packages
 - `nginx` role installs Nginx, deploys config templates, and starts the service
 
-## 14.2 Multi-Tier Application Deployment
+---
+## Multi-Tier Application Deployment
 
 **Objective**: Deploy a multi-tier application with database, backend, and frontend.
 ```yaml
@@ -44,7 +45,8 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - Separate roles for database, application, and web layer
 - Allows easy scaling and maintenance of each tier
 
-## 14.3 Cloud Infrastructure Provisioning
+---
+## Cloud Infrastructure Provisioning
 
 **Objective**: Provision EC2 instances in AWS and configure them.
 ```yaml
@@ -68,7 +70,8 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - Dynamic inventory using EC2 tags
 - Combines provisioning and configuration in one workflow
 
-## 14.4 Continuous Integration and Deployment (CI/CD)
+---
+## Continuous Integration and Deployment (CI/CD)
 
 **Objective**: Automate CI/CD pipelines for application deployment.
 ```yaml
@@ -89,7 +92,8 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - Git role ensures latest code checkout
 - Deploy role automates deployment and service restart
 
-## 14.5 Security Automation
+---
+## Security Automation
 
 **Objective**: Automatically enforce security policies.
 ```yaml
@@ -105,7 +109,8 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - `firewall configures` rules consistently
 - `ssh_hardening` enforces secure SSH settings
 
-## 14.6 Containerized Application Deployment
+---
+## Containerized Application Deployment
 
 **Objective**: Deploy a multi-container application using Docker.
 ```yaml
@@ -119,7 +124,8 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - `docker` role installs and configures Docker
 - `webapp_containers` role deploys containers, networks, and volumes
 
-## 14.7 Lessons Learned
+---
+## Lessons Learned
 
 - Use roles to modularize automation
 - Variables and inventories help adapt playbooks to multiple environments
@@ -127,6 +133,7 @@ To solidify your understanding, this chapter provides practical, real-world scen
 - Testing and CI/CD integration ensures reliable automation
 - Security and compliance can be automated consistently
 
+---
 ## Summary
 
 Real-world examples demonstrate how Ansible can:

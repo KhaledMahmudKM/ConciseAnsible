@@ -1,10 +1,10 @@
-# 12. Advanced Playbook Techniques
+# Advanced Playbook Techniques
 
 Once you are comfortable with basic playbooks, Ansible provides advanced techniques to make automation **more dynamic, reusable, and maintainable**.
 
 ---
 
-# 12.1 Include and Import Statements
+## Include and Import Statements
 
 Use include/import to organize large playbooks.
 
@@ -27,7 +27,9 @@ Use include/import to organize large playbooks.
 - include_tasks: setup.yml
   when: ansible_facts.os_family == "Debian"
 ```
-## 12.2 Using Tags
+---
+
+## Using Tags
 
 Tags allow running only specific parts of a playbook:
 ```yaml
@@ -50,7 +52,9 @@ Skip tasks:
 ansible-playbook site.yml --skip-tags packages
 ```
 
-## 12.3 Using `include_vars` and `import_role`
+---
+
+## Using `include_vars` and `import_role`
 
 Dynamic inclusion of variables:
 ```yaml
@@ -64,8 +68,9 @@ Dynamic inclusion of roles:
   import_role:
     name: "{{ role_name }}"
 ```
+---
 
-## 12.4 Delegation and Local Actions
+## Delegation and Local Actions
 
 Run tasks on a **specific host**:
 ```yaml
@@ -82,8 +87,9 @@ Run tasks on the **control node**:
     args:
       cmd: /usr/bin/generate_report.sh
 ```
+---
 
-## 12.5 Using `block` for Grouping and Error Handling
+## Using `block` for Grouping and Error Handling
 
 Blocks allow grouping tasks and managing errors:
 ```yaml
@@ -102,7 +108,9 @@ tasks:
         debug:
           msg: "This runs regardless"
 ```
-## 12.6 Using `run_once` and `serial`
+---
+
+## Using `run_once` and `serial`
 
 - **`run_once`**: execute task only on the first host
 ```yaml
@@ -117,8 +125,9 @@ tasks:
 - hosts: web
   serial: 2
 ```
+---
 
-## 12.7 Loops with Complex Data Structures
+## Loops with Complex Data Structures
 
 Loop over dictionaries:
 ```yaml
@@ -143,8 +152,9 @@ Loop with include_tasks:
   loop_control:
     loop_var: user
 ```
+---
 
-## 12.8 Dynamic Inventories and Fact Filtering
+## Dynamic Inventories and Fact Filtering
 
 Filter facts dynamically:
 ```yaml
@@ -157,8 +167,9 @@ Use `hostvars` and `group_names` for dynamic referencing:
 - debug:
     msg: "Database host is {{ hostvars[groups['db'][0]].ansible_facts.hostname }}"
 ```
+---
 
-## 12.9 Best Practices
+## Best Practices
 
 - Break large playbooks into smaller includes or roles
 - Use tags to run parts of the playbook efficiently
@@ -166,6 +177,7 @@ Use `hostvars` and `group_names` for dynamic referencing:
 - Use delegation and run_once to control task execution
 - Use dynamic variables, loops, and hostvars to handle complex scenarios
 
+---
 ## Summary
 
 - Advanced playbook techniques help:

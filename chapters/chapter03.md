@@ -1,11 +1,11 @@
-# 3. Core Ansible Concepts
+# Core Ansible Concepts
 
 This chapter explains the fundamental building blocks of Ansible: modules, tasks, plays, playbooks, inventories, facts, and idempotency.  
 These concepts form the foundation for everything you do with Ansible.
 
 ---
 
-## 3.1 Modules
+## Modules
 
 **Modules** are the smallest units of work in Ansible.  
 Each task uses a module to perform an action, such as:
@@ -28,7 +28,7 @@ Example:
 
 ---
 
-## 3.2 Tasks
+## Tasks
 
 A **task** is a single module invocation.  
 Tasks run **sequentially** in the order they appear in a playbook.
@@ -49,7 +49,7 @@ Key characteristics:
 
 ---
 
-## 3.3 Plays
+## Plays
 
 A **play** defines:
 - which hosts to run tasks on
@@ -74,7 +74,7 @@ A play is a mapping between hosts and tasks.
 
 ---
 
-## 3.4 Playbooks
+## Playbooks
 
 A **playbook** is a YAML file containing one or more plays.  
 It is the main way you define automation.
@@ -107,7 +107,7 @@ ansible-playbook webserver.yaml
 
 ---
 
-## 3.5 Inventory
+## Inventory
 
 The **inventory** defines *which* machines Ansible will manage.  
 It can be:
@@ -143,7 +143,7 @@ all:
 
 ---
 
-## 3.6 Facts
+## Facts
 
 **Facts** are system details collected automatically from managed nodes, such as:
 
@@ -168,7 +168,7 @@ debug:
 
 ---
 
-## 3.7 Variables
+## Variables
 
 Variables let you write flexible playbooks.
 
@@ -197,7 +197,7 @@ Variables can come from:
 
 ---
 
-## 3.8 Idempotency
+## Idempotency
 
 **Idempotency** means a task can run repeatedly without changing the system once the desired state is reached.
 
@@ -215,7 +215,7 @@ This makes Ansible reliable and predictable.
 
 ---
 
-## 3.9 Handlers (Preview)
+## Handlers (Preview)
 
 Handlers are special tasks that run *only when notified*, typically after a change.
 
@@ -233,7 +233,7 @@ They will be fully covered in Chapter 10.
 
 ---
 
-## 3.10 Putting It All Together
+## Putting It All Together
 
 A complete playbook combining these concepts:
 

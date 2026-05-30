@@ -1,11 +1,11 @@
-# 16. Ansible with Containers and Docker
+# Ansible with Containers and Docker
 
 Ansible can automate containerized environments like Docker and Kubernetes.  
 This chapter focuses on using Ansible to manage Docker containers, images, networks, and volumes.
 
 ---
 
-## 16.1 Prerequisites
+## Prerequisites
 
 - Docker installed on target hosts  
 - Python `docker` SDK module installed:
@@ -16,7 +16,8 @@ pip install docker
 - Ansible installed on control node
 - Target hosts reachable via SSH
 
-## 16.2 Docker Modules Overview
+---
+## Docker Modules Overview
 
 Ansible provides Docker-specific modules:
 - `community.docker.docker_container` – manage containers
@@ -24,7 +25,8 @@ Ansible provides Docker-specific modules:
 - `community.docker.docker_network` – manage networks
 - `community.docker.docker_volume` – manage volumes
 
-## 16.3 Managing Docker Images
+---
+## Managing Docker Images
 ### Pull an image
 - name: Pull Nginx image
   community.docker.docker_image:
@@ -41,7 +43,9 @@ Ansible provides Docker-specific modules:
     name: myapp
     tag: v1.0
 ```
-## 16.4 Managing Docker Containers
+
+---
+## Managing Docker Containers
 ### Run a container
 ```yaml
 - name: Start Nginx container
@@ -59,7 +63,9 @@ Ansible provides Docker-specific modules:
     name: web
     state: absent
 ```
-## 16.5 Managing Docker Networks and Volumes
+
+---
+## Managing Docker Networks and Volumes
 ### Create a network
 ```yaml
 - name: Create custom network
@@ -74,7 +80,9 @@ Ansible provides Docker-specific modules:
     name: my_data
     state: present
 ```
-## 16.6 Combining Containers with Playbooks
+
+---
+## Combining Containers with Playbooks
 
 You can automate multi-container setups:
 ```yaml
@@ -103,7 +111,8 @@ You can automate multi-container setups:
         state: started
 ```
 
-## 16.7 Best Practices
+---
+## Best Practices
 
 - Use roles for containerized applications
 - Separate image building and container deployment tasks
@@ -111,7 +120,8 @@ You can automate multi-container setups:
 - Use volumes for persistent data
 - Test containers locally before deploying to production
 
-Summary
+---
+## Summary
 
 - Ansible with Docker allows:
 - Automating container lifecycle: images, containers, networks, and volumes

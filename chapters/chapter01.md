@@ -1,10 +1,11 @@
 
-# 1. Introduction to Ansible
+# Introduction to Ansible
 
 ## What Is Ansible?
 Ansible is an **open-source automation tool** used to manage servers, configure systems, deploy applications, and orchestrate complex IT workflows.  
 Its key promise is *simple, agentless automation*.
 
+---
 ## Why Ansible?
 - **Agentless** – Managed hosts require *no software installation*; everything runs over SSH.  
 - **Simple to learn** – Playbooks use easy-to-read YAML.  
@@ -12,6 +13,7 @@ Its key promise is *simple, agentless automation*.
 - **Powerful & scalable** – Works for single servers or thousands.  
 - **Cross-platform** – Supports Linux, macOS, BSD, Windows, cloud platforms, and network devices.
 
+---
 ## How Ansible Works (High-Level Architecture)
 Ansible operates with two main components:
 
@@ -27,6 +29,7 @@ There are **no agents** or daemons running on managed nodes. Everything is execu
 Control Node ── SSH/WinRM ──► Managed Nodes
 ```
 
+---
 ## Key Use Cases
 - Installing and configuring software  
 - Provisioning servers  
@@ -37,6 +40,7 @@ Control Node ── SSH/WinRM ──► Managed Nodes
 - Orchestration of multi-step tasks  
 - Continuous delivery pipelines  
 
+---
 ## Ansible Vocabulary (Quick Overview)
 - **Module** – A task Ansible performs (e.g., install package, copy file).  
 - **Task** – A single action using a module.  
@@ -45,6 +49,7 @@ Control Node ── SSH/WinRM ──► Managed Nodes
 - **Facts** – System information collected automatically.  
 - **Roles** – A structured, reusable set of tasks, templates, variables.  
 
+---
 ## Why Agentless Matters
 Many automation tools require agents installed on each server—adding overhead, maintenance, and security considerations.
 
@@ -54,6 +59,7 @@ Ansible avoids all that:
 - No open ports beyond SSH  
 - Easy for secure environments  
 
+---
 ## A Simple Example
 Here’s an *actual Ansible ad-hoc command* that installs Apache on a host:
 
@@ -66,6 +72,7 @@ ansible webservers -m apt -a "name=apache2 state=present" -b
 - `-a` → module arguments  
 - `-b` → become root (sudo)
 
+---
 ## Summary
 Ansible simplifies automation by being:
 - Agentless  

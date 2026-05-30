@@ -1,4 +1,4 @@
-# 6. Modules
+# Modules
 
 **Modules** are the real “workers” in Ansible.  
 Every task in a playbook uses a module to perform an action such as:
@@ -16,7 +16,7 @@ Playbooks only describe *what* to do.
 
 ---
 
-## 6.1 What Is a Module?
+## What Is a Module?
 
 A **module** is a reusable, standalone unit of code that performs a specific operation.
 
@@ -30,7 +30,8 @@ Example task using the `apt` module:
 
 Ansible executes this module on the target host via SSH (or WinRM for Windows).
 
-## 6.2 Running Modules Directly with ansible Command
+---
+## Running Modules Directly with ansible Command
 
 You don’t need a playbook just to test a module.
 
@@ -48,7 +49,8 @@ Check free memory:
 ansible all -m shell -a "free -m"
 ```
 
-## 6.3 Types of Modules
+---
+## Types of Modules
 ### 1. Core modules
 
 Available on all systems, stable and maintained by Ansible.
@@ -89,7 +91,8 @@ You can write your own using:
 - Any script that returns JSON
 ---
 
-## 6.4 Frequently Used Modules
+---
+## Frequently Used Modules
 ### Package Management
 ```yaml
 apt:
@@ -153,8 +156,8 @@ shell: "echo $PATH"
 ```yaml
 raw: "yum install -y python3"
 ```
-
-## 6.5 Idempotency: The Most Important Feature
+---
+## Idempotency: The Most Important Feature
 
 Most modules are idempotent, meaning:
 
@@ -170,7 +173,8 @@ apt:
 Running it again will not reinstall nginx.
 Modules compare the desired state to the current state and act only when necessary.
 
-## 6.6 Checking Module Documentation
+---
+## Checking Module Documentation
 
 Use:
 
@@ -186,7 +190,8 @@ View examples:
 ansible-doc service
 ```
 
-## 6.7 Writing Your Own Module (Simple Example)
+---
+## Writing Your Own Module (Simple Example)
 
 Here is a minimal Python-based custom module:
 ```python
@@ -213,8 +218,8 @@ Usage:
   custom_hello:
     message: "Ansible User"
 ```
-
-## 6.8 Best Practices When Using Modules
+---
+## Best Practices When Using Modules
 
 * Prefer idempotent modules (apt, file, service, template)
 * Avoid shell/command unless necessary
@@ -223,6 +228,7 @@ Usage:
 * Use fully qualified module names (FQCN)
     * Example: ansible.builtin.copy
 
+---
 ## Summary
 
 Modules are where the actual work happens in Ansible:

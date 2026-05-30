@@ -4,7 +4,7 @@ Inventory is the foundation of Ansible automation. It defines **which hosts** ta
 
 ---
 
-## 4.1 Introduction
+## Introduction
 
 - Inventory lists all the managed nodes (hosts).  
 - Hosts can be organized into **groups** for easier management.  
@@ -12,7 +12,7 @@ Inventory is the foundation of Ansible automation. It defines **which hosts** ta
 
 ---
 
-## 4.2 Static Inventory
+## Static Inventory
 
 Static inventories are simple text files that define hosts and groups.  
 They can be in **INI** or **YAML** format.
@@ -58,7 +58,8 @@ all:
         db2.example.com:
 ```
 
-## 4.3 Using Multiple Inventories
+---
+## Using Multiple Inventories
 
 Ansible can merge multiple inventory files:
 ```bash
@@ -80,8 +81,8 @@ Run:
 ```bash
 ansible-playbook site.yml -i inventory/prod
 ```
-
-## 4.4 Dynamic Inventory
+---
+## Dynamic Inventory
 
 Dynamic inventories are scripts or plugins that fetch host information automatically, often from cloud providers.
 - **AWS**: `aws_ec2` plugin
@@ -99,8 +100,8 @@ keyed_groups:
 ```
 - Groups hosts based on tags like Environment=production.
 
-
-## 4.5 Inventory Management Commands
+---
+## Inventory Management Commands
 
 - Ansible provides tools to inspect and manage inventory:
 
@@ -122,8 +123,8 @@ ansible-inventory -i aws_ec2.yml --graph
 ansible web -m ping
 ansible db -m shell -a "uptime"
 ```
-
-## 4.6 Group Variables and Host Variables
+---
+## Group Variables and Host Variables
 
 Organize variables for hosts and groups:
 ```
@@ -137,7 +138,8 @@ inventory/
 - Group variables apply to all hosts in a group.
 - Host variables override group or global variables for specific hosts.
 
-## 4.7 Checking and Visualizing Inventory
+---
+## Checking and Visualizing Inventory
 
 Useful commands:
 
@@ -148,7 +150,8 @@ Useful commands:
 |`ansible all -m ping -i inventory.ini`	|Test connectivity|
 |`ansible-playbook -i inventory.ini play.yml`	|Run with specific inventory|
 
-## 4.8 Best Practices
+---
+## Best Practices
 
 - Use meaningful host and group names.
 - Separate static and dynamic inventories.
@@ -156,7 +159,8 @@ Useful commands:
 - Keep inventory files under version control.
 - Use group_vars and host_vars for organized variable management.
 
-## 4.9 Summary
+---
+## Summary
 
 - An inventory defines the hosts Ansible manages.
 - Supports INI, YAML, and dynamic formats.

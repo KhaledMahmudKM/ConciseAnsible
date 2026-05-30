@@ -1,11 +1,11 @@
-# 17. Ansible with Kubernetes
+# Ansible with Kubernetes
 
 Ansible can automate the deployment and management of applications on **Kubernetes clusters**.  
 This chapter introduces using Ansible with Kubernetes for configuration and orchestration.
 
 ---
 
-## 17.1 Prerequisites
+## Prerequisites
 
 - Access to a Kubernetes cluster  
 - `kubectl` configured on the control machine  
@@ -17,7 +17,8 @@ This chapter introduces using Ansible with Kubernetes for configuration and orch
 
 - Ansible installed on the control node
 
-## 17.2 Kubernetes Modules Overview
+---
+## Kubernetes Modules Overview
 
 Ansible provides **k8s modules** to manage Kubernetes resources:
 
@@ -25,7 +26,8 @@ Ansible provides **k8s modules** to manage Kubernetes resources:
 - `kubernetes.core.k8s_info` – gather information about resources
 - `kubernetes.core.k8s_scale` – scale deployments
 
-## 17.3 Managing Kubernetes Resources
+---
+## Managing Kubernetes Resources
 
 ### Deploy a Pod
 ```yaml
@@ -71,7 +73,9 @@ Ansible provides **k8s modules** to manage Kubernetes resources:
                 ports:
                   - containerPort: 80
 ```
-## 17.4 Managing Services
+
+---
+## Managing Services
 
 ```yaml
 - name: Expose deployment as a service
@@ -91,7 +95,9 @@ Ansible provides **k8s modules** to manage Kubernetes resources:
             targetPort: 80
         type: LoadBalancer
 ```
-## 17.5 Scaling and Updating Deployments
+
+---
+## Scaling and Updating Deployments
 
 ### Scale a Deployment
 ```yaml
@@ -116,7 +122,8 @@ Ansible provides **k8s modules** to manage Kubernetes resources:
                 image: nginx:1.23
 ```
 
-## 17.6 Gathering Resource Information
+---
+## Gathering Resource Information
 
 ```yaml
 - name: Get pods info
@@ -130,7 +137,8 @@ Ansible provides **k8s modules** to manage Kubernetes resources:
 
 - Use this information for dynamic decision-making or reporting
 
-## 17.7 Best Practices
+---
+## Best Practices
 
 - Use YAML resource definitions for clarity
 - Use variables for cluster names, namespaces, and image versions
@@ -138,6 +146,7 @@ Ansible provides **k8s modules** to manage Kubernetes resources:
 - Test changes in staging clusters before production
 - Combine with roles for repeatable multi-application deployments
 
+---
 ## Summary
 
 - Ansible with Kubernetes allows:

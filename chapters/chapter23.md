@@ -1,11 +1,11 @@
-# 23. Troubleshooting and Debugging Ansible
+# Troubleshooting and Debugging Ansible
 
 Even with best practices, playbooks may fail or behave unexpectedly.  
 This chapter covers **how to diagnose, debug, and resolve issues**.
 
 ---
 
-## 23.1 Verbose Mode
+## Verbose Mode
 
 Use verbose flags to get detailed output:
 
@@ -17,7 +17,8 @@ ansible-playbook site.yml -vvvv  # full debug
 ```
 - `-v` through `-vvvv` increase the level of information
 
-## 23.2 Check Mode
+---
+## Check Mode
 
 - Use `--check` to run playbooks without making changes:
 ```bash
@@ -26,14 +27,16 @@ ansible-playbook site.yml --check
 - Useful for testing changes safely
 - Combined with `--diff` to see what would change
 
-## 23.3 Dry-Run with Diff
+---
+## Dry-Run with Diff
 ```bash
 ansible-playbook site.yml --check --diff
 ```
 - Shows differences for templates, files, or configs
 - Helps confirm changes before applying
 
-## 23.4 Debug Module
+---
+## Debug Module
 
 - Print variable values or messages:
 ```yaml
@@ -47,7 +50,9 @@ ansible-playbook site.yml --check --diff
 - debug:
     msg: "Current hostname is {{ ansible_facts.hostname }}"
 ```
-## 23.5 Registering Variables
+
+---
+## Registering Variables
 
 - Capture task results for debugging:
 ```yaml
@@ -62,7 +67,8 @@ ansible-playbook site.yml --check --diff
 
 - Helps track what tasks return
 
-## 23.6 Conditional Debugging
+---
+## Conditional Debugging
 
 - Debug only when conditions are met:
 
@@ -72,7 +78,8 @@ ansible-playbook site.yml --check --diff
   when: package_result.failed
 ```
 
-## 23.7 Handling Failed Tasks
+---
+## Handling Failed Tasks
 
 - Use `ignore_errors` to continue execution:
 
@@ -90,7 +97,8 @@ ansible-playbook site.yml --check --diff
   failed_when: not file_stat.stat.exists
 ```
 
-## 23.8 Reviewing Logs
+---
+## Reviewing Logs
 
 - Ansible writes logs if `ANSIBLE_LOG_PATH` is set:
 ```bash
@@ -107,13 +115,15 @@ ansible-playbook site.yml
 - **Variable precedence conflicts** – check defaults, vars, host_vars, and extra vars
 - **Permissions** – check `become` usage for tasks requiring root
 
-## 23.10 Best Practices
+---
+## Best Practices
 
 - Test playbooks incrementally
 - Use verbose and debug output strategically
 - Combine `register`, `when`, and `debug` for precise troubleshooting
 - Keep a log for recurring issues
 
+---
 ## Summary
 
 Troubleshooting and debugging are essential skills:

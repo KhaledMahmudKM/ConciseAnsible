@@ -1,10 +1,10 @@
-# 21. BGP Automation
+# BGP Automation
 
 This chapter covers automating BGP (Border Gateway Protocol) configuration using Ansible on Cisco and Juniper devices.
 
 ---
 
-## 21.1 Introduction
+## Introduction
 
 BGP is the backbone of Internet routing and multi-site enterprise connectivity.  
 Automating BGP ensures:
@@ -17,7 +17,7 @@ Ansible makes BGP scalable across dozens or hundreds of routers.
 
 ---
 
-## 21.2 Basic BGP Configuration (Cisco IOS)
+## Basic BGP Configuration (Cisco IOS)
 
 ```yaml
 - name: Configure BGP
@@ -38,7 +38,8 @@ Ansible makes BGP scalable across dozens or hundreds of routers.
 ```
 - Automates peer setup and network advertisement.
 
-## 21.3 Configuring Multiple BGP Neighbors
+---
+## Configuring Multiple BGP Neighbors
 
 ```yaml
 - name: Configure multiple BGP neighbors
@@ -51,7 +52,8 @@ Ansible makes BGP scalable across dozens or hundreds of routers.
 ```
 This approach scales better than writing multiple neighbor commands manually.
 
-## 21.4 Advertising Networks Dynamically
+---
+## Advertising Networks Dynamically
 ```yaml
 - name: Advertise networks in BGP
   cisco.ios.ios_config:
@@ -61,8 +63,8 @@ This approach scales better than writing multiple neighbor commands manually.
     - { network: "10.10.10.0", mask: "255.255.255.0" }
     - { network: "192.168.50.0", mask: "255.255.255.0" }
 ```
-
-## 21.5 Juniper BGP Automation Example
+---
+## Juniper BGP Automation Example
 ```yaml
 - name: Configure BGP on Juniper router
   juniper.junos.junos_config:
@@ -76,7 +78,8 @@ This approach scales better than writing multiple neighbor commands manually.
 ```
 - Supports idempotent automation for BGP peer and policy configuration.
 
-## 21.6 Using Variables for BGP (recommended)
+---
+## Using Variables for BGP (recommended)
 
 `group_vars/bgp.yml`:
 ```yaml
@@ -98,8 +101,8 @@ Playbook:
   loop: "{{ bgp_neighbors }}"
 ```
 
-
-## 21.7 Best Practices
+---
+## Best Practices
 
 - Use iBGP full-mesh or route reflectors depending on your topology.
 - Store BGP neighbors in a variables file for reuse.
@@ -107,6 +110,7 @@ Playbook:
 - Test BGP configs in GNS3, EVE-NG, or CML before production deployment.
 - Apply strict filtering (prefix lists, route maps) to avoid route leaks.
 
+---
 ## Summary
 
 BGP automation ensures reliable, consistent routing configuration across your network.

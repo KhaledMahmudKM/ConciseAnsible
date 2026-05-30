@@ -1,6 +1,6 @@
-# 2. Installing and Setting Up Ansible
+# Installing and Setting Up Ansible
 
-## 2.1 Installing Ansible on Ubuntu
+## Installing Ansible on Ubuntu
 
 ### Step 1: Update your package list
 ```bash
@@ -27,7 +27,7 @@ ansible [core 2.17.0]
 
 ---
 
-## 2.2 Understanding the Ansible Configuration Files
+## Understanding the Ansible Configuration Files
 
 After installation, Ansible looks for configuration in this order:
 
@@ -47,7 +47,7 @@ But for most beginners, the default settings are fine.
 
 ---
 
-## 2.3 Creating Your Inventory File
+## Creating Your Inventory File
 
 Ansible needs an *inventory file* to know which servers to manage.
 
@@ -76,7 +76,7 @@ ansible all -i inventory.ini -m ping
 
 ---
 
-## 2.4 Passwordless SSH Setup (Recommended)
+## Passwordless SSH Setup (Recommended)
 
 Ansible uses SSH to connect to Linux servers.  
 The best practice is to use SSH keys.
@@ -103,7 +103,7 @@ If it logs in without asking for a password, Ansible will work smoothly.
 
 ---
 
-## 2.5 Installing Additional Collections (Optional)
+## Installing Additional Collections (Optional)
 
 Some features require extra packages from Ansible Galaxy.
 
@@ -121,7 +121,7 @@ ansible-galaxy collection install cisco.ios
 
 ---
 
-## 2.6 Testing Your Setup With an Ad-hoc Command
+## Testing Your Setup With an Ad-hoc Command
 
 Try gathering facts from all hosts:
 

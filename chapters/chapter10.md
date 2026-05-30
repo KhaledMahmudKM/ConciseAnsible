@@ -1,10 +1,10 @@
-# 10. Loops, Conditionals, and Error Handling
+# Loops, Conditionals, and Error Handling
 
 Ansible provides **loops**, **conditionals**, and **error handling** to make playbooks dynamic and robust.
 
 ---
 
-# 10.1 Loops
+## Loops
 
 Loops allow tasks to run multiple times with different items.
 
@@ -31,7 +31,8 @@ Loop with a dictionary:
     - { name: 'bob', groups: 'docker' }
 ```
 
-## 10.2 Conditionals
+---
+## Conditionals
 
 Use when: to run tasks only when conditions are met.
 ```yaml
@@ -48,8 +49,8 @@ Multiple conditions:
   command: echo "Hello"
   when: ansible_facts.os_family == "Debian" and ansible_facts.architecture == "x86_64"
 ```
-
-## 10.3 Error Handling
+---
+## Error Handling
 ### Ignore errors
 
 ```yaml
@@ -90,7 +91,8 @@ tasks:
 
 Blocks help structure playbooks with multiple tasks and proper error handling.
 
-## 10.4 Best Practices
+---
+## Best Practices
 
 - Use loops instead of repeating tasks
 - Keep conditionals simple and readable
@@ -98,6 +100,7 @@ Blocks help structure playbooks with multiple tasks and proper error handling.
 - Use `block/rescue/always` for predictable failure handling
 - Register variables when needed for decisions
 
+---
 ## Summary
 
 Loops, conditionals, and error handling make playbooks dynamic and robust:

@@ -1,11 +1,11 @@
-# 9. Handlers and Notifications
+# Handlers and Notifications
 
 Handlers are special tasks in Ansible that run **only when notified** by another task.  
 They are typically used for service restarts or reloads after a configuration change.
 
 ---
 
-# 9.1 What Are Handlers?
+## What Are Handlers?
 
 Handlers are like “conditional tasks” triggered by other tasks.  
 They run **once per play**, even if multiple tasks notify them.
@@ -29,14 +29,16 @@ handlers:
 - `notify`: tells Ansible which handler to run
 - Handlers are defined under the `handlers`: section
 
-## 9.2 Rules of Handlers
+---
+## Rules of Handlers
 
 - Run only if notified
 - Run once per play
 - Can be notified by multiple tasks
 - Use descriptive names
 
-## 9.3 Notifying Multiple Handlers
+---
+## Notifying Multiple Handlers
 
 A task can notify multiple handlers:
 ```yaml
@@ -62,7 +64,8 @@ handlers:
       state: reloaded
 ```
 
-## 9.4 Conditional Handlers
+---
+## Conditional Handlers
 
 You can run a handler only under certain conditions:
 ```yaml
@@ -81,7 +84,8 @@ handlers:
       state: restarted
 ```
 
-## 9.5 Using Handlers with Roles
+---
+## Using Handlers with Roles
 
 In roles, handlers live in roles/<role_name>/handlers/main.yml:
 
@@ -111,7 +115,8 @@ Tasks notify it like:
   notify: Restart nginx
 ```
 
-## 9.6 Best Practices
+---
+## Best Practices
 
 - Give handlers clear, descriptive names
 - Keep handlers idempotent
@@ -119,6 +124,7 @@ Tasks notify it like:
 - Avoid unnecessary service restarts
 - Place handlers in roles when possible
 
+---
 ## Summary
 
 Handlers allow Ansible to respond to changes in a controlled way:
@@ -127,6 +133,3 @@ Handlers allow Ansible to respond to changes in a controlled way:
 - Run once per play
 - Can restart/reload services or perform any action
 - Use handlers to keep playbooks efficient and predictable
-
-
-

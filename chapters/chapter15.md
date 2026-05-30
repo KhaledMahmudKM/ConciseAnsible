@@ -1,11 +1,11 @@
-# 15. Ansible for Cloud Automation
+# Ansible for Cloud Automation
 
 Ansible can automate cloud resources across providers like AWS, Azure, GCP, and others.  
 This chapter introduces how to use Ansible for provisioning, configuring, and managing cloud infrastructure.
 
 ---
 
-## 15.1 Cloud Modules Overview
+## Cloud Modules Overview
 
 - Ansible provides **cloud-specific modules** for various providers:  
   - AWS: `ec2`, `s3_bucket`, `elb`  
@@ -16,7 +16,7 @@ This chapter introduces how to use Ansible for provisioning, configuring, and ma
 
 ---
 
-## 15.2 Setting Up Credentials
+## Setting Up Credentials
 
 - **AWS Example:** Store credentials in `~/.aws/credentials`:
 ```
@@ -30,7 +30,7 @@ aws_secret_access_key = YOUR_SECRET_KEY
 
 ---
 
-## 15.3 Provisioning Cloud Resources
+## Provisioning Cloud Resources
 
 ### AWS EC2 Instance Example:
 
@@ -52,7 +52,8 @@ aws_secret_access_key = YOUR_SECRET_KEY
 
 - `register`: ec2 captures instance details for further use
 
-## 15.4 Managing Cloud Resources
+---
+## Managing Cloud Resources
 
 Start, stop, or terminate instances:
 ```yaml
@@ -64,7 +65,8 @@ Start, stop, or terminate instances:
 
 Manage storage, security groups, and networking via respective modules
 
-## 15.5 Using Dynamic Inventories
+---
+## Using Dynamic Inventories
 
 Dynamic inventory scripts allow Ansible to fetch hosts from cloud providers automatically
 
@@ -80,7 +82,8 @@ keyed_groups:
 
 - Reduces manual inventory management for ephemeral cloud hosts
 
-## 15.6 Combining Cloud Provisioning with Configuration
+---
+## Combining Cloud Provisioning with Configuration
 
 - Use roles and playbooks to provision infrastructure and configure it in one workflow:
 ```yaml
@@ -93,7 +96,8 @@ keyed_groups:
 
 Enables infrastructure as code (**IaC**) approach
 
-## 15.7 Best Practices
+---
+## Best Practices
 
 - Keep cloud credentials secure (use vaults or environment variables)
 - Use dynamic inventories for ephemeral resources
@@ -101,6 +105,7 @@ Enables infrastructure as code (**IaC**) approach
 - Leverage tags and resource naming conventions
 - Test playbooks in staging before production
 
+---
 ## Summary
 
 - Ansible for cloud automation allows:
