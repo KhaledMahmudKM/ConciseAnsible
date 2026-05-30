@@ -1,4 +1,4 @@
-# Chapter 23 - Troubleshooting and Debugging Ansible
+# 23. Troubleshooting and Debugging Ansible
 
 Even with best practices, playbooks may fail or behave unexpectedly.  
 This chapter covers **how to diagnose, debug, and resolve issues**.

@@ -1,4 +1,4 @@
-# Chapter 4 - Inventory Management
+# Inventory Management
 
 Inventory is the foundation of Ansible automation. It defines **which hosts** tasks and playbooks target and **how they are grouped**.
 

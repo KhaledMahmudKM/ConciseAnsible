@@ -1,4 +1,4 @@
-# Chapter 20 OSPF Automation and Interface Templates
+# 20. OSPF Automation and Interface Templates
 
 This chapter covers **automating OSPF configurations** and using **Jinja2 templates** for network interfaces to simplify repetitive tasks across multiple devices.
 

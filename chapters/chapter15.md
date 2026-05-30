@@ -1,4 +1,4 @@
-# Chapter 15: Ansible for Cloud Automation
+# 15. Ansible for Cloud Automation
 
 Ansible can automate cloud resources across providers like AWS, Azure, GCP, and others.  
 This chapter introduces how to use Ansible for provisioning, configuring, and managing cloud infrastructure.

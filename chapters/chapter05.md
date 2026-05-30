@@ -1,4 +1,4 @@
-# Chapter 5 - Playbooks
+# 5. Playbooks
 
 A **playbook** is the core of Ansible automation.  
 It describes *what* you want to configure, install, or run on your systems—written in simple, human-readable **YAML**.

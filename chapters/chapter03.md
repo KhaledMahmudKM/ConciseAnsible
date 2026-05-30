@@ -1,4 +1,4 @@
-# Chapter 3 - Core Ansible Concepts
+# 3. Core Ansible Concepts
 
 This chapter explains the fundamental building blocks of Ansible: modules, tasks, plays, playbooks, inventories, facts, and idempotency.  
 These concepts form the foundation for everything you do with Ansible.

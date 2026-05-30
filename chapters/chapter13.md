@@ -1,4 +1,4 @@
-# Chapter 13: Ansible Vault and Security
+# 13. Ansible Vault and Security
 
 **Purpose:** Protect sensitive data like passwords, API keys, and private keys in your Ansible projects.
 

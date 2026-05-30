@@ -1,4 +1,4 @@
-# Chapter 21 - BGP Automation
+# 21. BGP Automation
 
 This chapter covers automating BGP (Border Gateway Protocol) configuration using Ansible on Cisco and Juniper devices.
 

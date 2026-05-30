@@ -1,4 +1,4 @@
-# Chapter 2 - Installing and Setting Up Ansible
+# 2. Installing and Setting Up Ansible
 
 ## 2.1 Installing Ansible on Ubuntu
 

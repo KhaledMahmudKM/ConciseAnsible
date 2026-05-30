@@ -1,4 +1,4 @@
-# Chapter 12: Advanced Playbook Techniques
+# 12. Advanced Playbook Techniques
 
 Once you are comfortable with basic playbooks, Ansible provides advanced techniques to make automation **more dynamic, reusable, and maintainable**.
 

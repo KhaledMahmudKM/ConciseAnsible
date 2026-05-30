@@ -1,4 +1,4 @@
-# Chapter 18 - Networking Automation
+# 18. Networking Automation
 
 Ansible is widely used to automate **network configuration, management, and monitoring** across multiple devices and vendors. This chapter covers concepts, modules, and best practices for networking automation.
 

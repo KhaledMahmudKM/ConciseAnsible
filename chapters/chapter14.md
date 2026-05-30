@@ -1,4 +1,4 @@
-# Chapter 14: Real-World Examples of Ansible Automation
+# 14. Real-World Examples of Ansible Automation
 
 To solidify your understanding, this chapter provides practical, real-world scenarios where Ansible is used to automate IT tasks.
 

@@ -1,4 +1,4 @@
-# Chapter 16: Ansible with Containers and Docker
+# 16. Ansible with Containers and Docker
 
 Ansible can automate containerized environments like Docker and Kubernetes.  
 This chapter focuses on using Ansible to manage Docker containers, images, networks, and volumes.

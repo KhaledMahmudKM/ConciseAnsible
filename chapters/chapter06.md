@@ -1,4 +1,4 @@
-# Chapter 6 - Modules
+# 6. Modules
 
 **Modules** are the real “workers” in Ansible.  
 Every task in a playbook uses a module to perform an action such as:

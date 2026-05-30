@@ -1,5 +1,5 @@
 
-# Chapter 1 - Introduction to Ansible
+# 1. Introduction to Ansible
 
 ## What Is Ansible?
 Ansible is an **open-source automation tool** used to manage servers, configure systems, deploy applications, and orchestrate complex IT workflows.  

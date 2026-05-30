@@ -1,4 +1,4 @@
-# Chapter 19 - VLAN Automation
+# 19. VLAN Automation
 
 This chapter focuses on automating VLAN creation, modification, and assignment using Ansible on network devices such as Cisco IOS switches.
 

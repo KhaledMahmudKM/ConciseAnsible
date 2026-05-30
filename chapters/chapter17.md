@@ -1,4 +1,4 @@
-# Chapter 17: Ansible with Kubernetes
+# 17. Ansible with Kubernetes
 
 Ansible can automate the deployment and management of applications on **Kubernetes clusters**.  
 This chapter introduces using Ansible with Kubernetes for configuration and orchestration.

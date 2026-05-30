@@ -1,4 +1,4 @@
-# Chapter 9 - Handlers and Notifications
+# 9. Handlers and Notifications
 
 Handlers are special tasks in Ansible that run **only when notified** by another task.  
 They are typically used for service restarts or reloads after a configuration change.

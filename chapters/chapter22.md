@@ -1,4 +1,4 @@
-# Chapter 22 - Ansible Best Practices and Optimization
+# 22. Ansible Best Practices and Optimization
 
 Once your Ansible projects grow, following best practices ensures **maintainability, efficiency, and reliability**.
 

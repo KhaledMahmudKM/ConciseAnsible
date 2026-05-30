@@ -1,4 +1,4 @@
-# Chapter 11 - Roles, Project Structure, and Ansible Galaxy
+# 11. Roles, Project Structure, and Ansible Galaxy
 
 As Ansible projects grow, organizing playbooks, tasks, and variables becomes essential.  
 Roles provide a standard way to structure reusable automation components, and Ansible Galaxy allows sharing and reusing roles.

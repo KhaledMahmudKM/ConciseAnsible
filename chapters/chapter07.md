@@ -1,4 +1,4 @@
-# Chapter 7 - Variables and Facts
+# 7. Variables and Facts
 
 Variables make Ansible flexible and reusable.  
 Facts provide system information gathered automatically from managed hosts.

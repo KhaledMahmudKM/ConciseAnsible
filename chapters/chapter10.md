@@ -1,4 +1,4 @@
-# Chapter 10 - Loops, Conditionals, and Error Handling
+# 10. Loops, Conditionals, and Error Handling
 
 Ansible provides **loops**, **conditionals**, and **error handling** to make playbooks dynamic and robust.
 

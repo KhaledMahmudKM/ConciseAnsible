@@ -1,4 +1,4 @@
-# Chapter 8 - Templates and Jinja2
+# 8. Templates and Jinja2
 
 Ansible uses **Jinja2 templates** to dynamically generate configuration files, scripts, and other text-based files.  
 Templates allow you to use variables, conditionals, loops, and filters to customize files for each host.
