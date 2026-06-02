@@ -105,3 +105,279 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* ── TOC: Separator labels ─────────────────────────────────── */
+.sidebar ul li.toc-separator {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #95a5a6;
+  padding: 1rem 0 0.3rem 0;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  cursor: default;
+  user-select: none;
+}
+
+/* ── TOC: Active chapter link ──────────────────────────────── */
+.sidebar ul li a.toc-link {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar ul li a.toc-link:hover {
+  background: rgba(255,255,255,0.1);
+  text-decoration: none;
+}
+
+.sidebar ul li a.toc-link.active {
+  background: #455d5f;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ── Chapter navigation bars (top + bottom) ────────────────── */
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+}
+
+.chapter-nav--top {
+  border-bottom: 2px solid #ecf0f1;
+  margin-bottom: 1.5rem;
+}
+
+.chapter-nav--bottom {
+  border-top: 2px solid #ecf0f1;
+  margin-top: 1.5rem;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid #2c3e50;
+  border-radius: 6px;
+  background: transparent;
+  color: #2c3e50;
+  font-size: 0.82rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  max-width: 45%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nav-btn:hover:not([disabled]) {
+  background: #2c3e50;
+  color: #fff;
+}
+
+.nav-btn[disabled] {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.nav-arrow {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-btn--prev .nav-label { text-align: left; }
+.nav-btn--next .nav-label { text-align: right; }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hamburger button (hidden on desktop) ──────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ecf0f1;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.hamburger:hover span { background: #1abc9c; }
+
+/* Animated X when open */
+.hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Sidebar close button (mobile only) ────────────────────── */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sidebar-header h2 { margin-bottom: 0; }
+
+.sidebar-close {
+  display: none;
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  line-height: 1;
+}
+.sidebar-close:hover { color: #1abc9c; }
+
+/* ── Overlay ───────────────────────────────────────────────── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 99;
+}
+.sidebar-overlay.is-visible { display: block; }
+
+/* ── Mobile layout (≤ 768px) ───────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Header: row with hamburger + title */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    text-align: left;
+    flex: 1;
+    /* Prevent overflow on narrow screens */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Show hamburger */
+  .hamburger { display: flex; }
+
+  /* Sidebar becomes a slide-in drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    max-width: 80vw;
+    z-index: 200;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    padding: 1rem;
+    /* Keep existing bg colour */
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0,0,0,0.35);
+  }
+
+  /* Show close button inside sidebar */
+  .sidebar-close { display: block; }
+
+  /* TOC links: larger tap targets */
+  .sidebar ul li { font-size: 0.95rem; margin: 0.3rem 0; }
+
+  .sidebar ul li a.toc-link {
+    padding: 0.5rem 0.6rem;
+  }
+
+  /* Container stacks vertically */
+  .container {
+    flex-direction: column;
+  }
+
+  /* Content: full width, smaller padding */
+  .content {
+    padding: 1rem;
+    /* Prevent wide code blocks from overflowing */
+    overflow-x: hidden;
+  }
+
+  /* Code blocks: horizontal scroll instead of overflow */
+  .content pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* Images: never overflow */
+  .content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tables: horizontal scroll */
+  .content table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* Nav buttons: slightly larger for touch */
+  .nav-btn {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.8rem;
+    max-width: 47%;
+    min-height: 44px; /* iOS tap target */
+  }
+
+  /* Footer */
+  .footer { font-size: 0.8rem; padding: 0.75rem; }
+}
+
+/* ── Very small screens (≤ 380px) ─────────────────────────── */
+@media (max-width: 380px) {
+  .header h1 { font-size: 1rem; }
+
+  .nav-btn { font-size: 0.75rem; padding: 0.5rem 0.6rem; }
+
+  /* Hide chapter label in nav, show only arrow */
+  .nav-label { display: none; }
+  .nav-arrow { font-size: 1.2rem; }
+}

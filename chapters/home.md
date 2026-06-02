@@ -1,7 +1,5 @@
 # Concise Book on Ansible
 
-Welcome to the book.
-
 This book covers:
 
 - Core Ansible concepts

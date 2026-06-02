@@ -21,11 +21,19 @@
 <body>
   <div class="wrapper">
     <header class="header">
+      <button class="hamburger" id="sidebar-toggle" aria-label="Toggle table of contents" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <h1 id="book-title"></h1>
     </header>
+  <!-- Overlay for closing sidebar on mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
   <div class="container">
-    <aside class="sidebar">
-      <h2>Chapters</h2>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Chapters</h2>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">&#x2715;</button>
+      </div>
         <ul id="toc">
         </ul>
     </aside>
