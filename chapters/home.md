@@ -3,7 +3,8 @@
 A practical, task-focused guide to Ansible automation.
 
 
-<img src="cover_image.jpeg" alt="Cover Image" width="500" >![Cover Image](cover_image.jpeg)
+<img src="cover_image.jpeg" alt="Cover Image" width="500" >
+
 ---
 
 ## Overview
