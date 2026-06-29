@@ -1,4 +1,5 @@
 [
+  { "separator": "— Part I —" },
   "chapter01.md",
   "chapter02.md",
   "chapter03.md",
@@ -12,6 +13,7 @@
   "chapter11.md",
   "chapter12.md",
   "chapter13.md",
+    { "separator": "— Part II —" },
   "chapter14.md",
   "chapter15.md",
   "chapter16.md",
