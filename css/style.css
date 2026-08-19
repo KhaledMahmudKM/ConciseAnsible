@@ -206,24 +206,52 @@ a{color:inherit}
   margin:0.2rem 0;
 }
 
-/* TOC separators */
-.sidebar ul li.toc-separator{
+/* TOC Part groups (collapsible) */
+.sidebar ul li.toc-group{
+  margin-top:0.4rem;
+  padding-top:0.55rem;
+  border-top:1px solid var(--border-soft);
+}
+
+.toc-group-toggle{
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+  width:100%;
+  background:none;
+  border:none;
+  padding:0.3rem 0.4rem 0.35rem;
   font-family:var(--mono);
   font-size:0.66rem;
   font-weight:700;
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--text-faint);
-  padding:1rem 0.4rem 0.35rem;
-  margin-top:0.4rem;
-  border-top:1px solid var(--border-soft);
-  cursor:default;
-  user-select:none;
+  cursor:pointer;
+  border-radius:6px;
+  transition:color .15s, background .15s;
 }
-.sidebar ul li.toc-separator:first-child{
-  border-top:none;
-  margin-top:0;
-  padding-top:0;
+.toc-group-toggle:hover{
+  color:var(--text-dim);
+  background:var(--panel-hover);
+}
+
+.toc-chevron{
+  display:inline-flex;
+  flex-shrink:0;
+  transition:transform .18s ease;
+  transform:rotate(90deg);
+}
+.toc-chevron svg{ width:11px; height:11px; }
+.toc-group.collapsed .toc-chevron{ transform:rotate(0deg); }
+
+.toc-group-list{
+  list-style:none;
+  padding-left:0.35rem;
+  margin-top:0.1rem;
+}
+.toc-group.collapsed .toc-group-list{
+  display:none;
 }
 
 /* TOC links */

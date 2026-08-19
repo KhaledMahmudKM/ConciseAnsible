@@ -139,7 +139,7 @@ async function generateTOC() {
   const homeLi = document.createElement("li");
   const homeA = document.createElement("a");
   homeA.href = "#";
-  homeA.textContent = "Home";
+  homeA.textContent = "Preface";
   homeA.className = "toc-link";
   homeA.dataset.index = "-1";
   homeA.addEventListener("click", e => {
@@ -149,16 +149,66 @@ async function generateTOC() {
   homeLi.appendChild(homeA);
   toc.appendChild(homeLi);
 
-  // Process entries: strings = chapter file, objects with "separator" key = divider
+  // Remember which Parts the reader has collapsed, per book
+  const storageKey = "kmbooks-toc-collapsed:" + (bookMeta.title || location.pathname);
+  let collapsedParts = [];
+  try {
+    collapsedParts = JSON.parse(localStorage.getItem(storageKey)) || [];
+  } catch (e) { /* ignore malformed storage */ }
+
+  function saveCollapsedState() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(collapsedParts));
+    } catch (e) { /* storage unavailable — ignore */ }
+  }
+
+  // Process entries: strings = chapter file, objects with "separator" key = a
+  // Part divider that starts a new collapsible group.
   let chapterIndex = 0;
+  let currentGroupList = null; // <ul> currently receiving chapter <li>s (null = top level)
 
   for (const entry of entries) {
-    // --- Separator ---
+    // --- Separator: starts a new collapsible Part group ---
     if (typeof entry === "object" && entry.separator) {
-      const li = document.createElement("li");
-      li.className = "toc-separator";
-      li.textContent = entry.separator;
-      toc.appendChild(li);
+      const label = entry.separator;
+      const groupLi = document.createElement("li");
+      groupLi.className = "toc-group";
+
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "toc-group-toggle";
+
+      const chevron = document.createElement("span");
+      chevron.className = "toc-chevron";
+      chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+
+      const labelSpan = document.createElement("span");
+      labelSpan.textContent = label;
+
+      toggle.appendChild(chevron);
+      toggle.appendChild(labelSpan);
+
+      const groupList = document.createElement("ul");
+      groupList.className = "toc-group-list";
+
+      const isCollapsed = collapsedParts.includes(label);
+      groupLi.classList.toggle("collapsed", isCollapsed);
+      toggle.setAttribute("aria-expanded", String(!isCollapsed));
+
+      toggle.addEventListener("click", () => {
+        const collapsed = groupLi.classList.toggle("collapsed");
+        toggle.setAttribute("aria-expanded", String(!collapsed));
+        collapsedParts = collapsed
+          ? [...new Set([...collapsedParts, label])]
+          : collapsedParts.filter(l => l !== label);
+        saveCollapsedState();
+      });
+
+      groupLi.appendChild(toggle);
+      groupLi.appendChild(groupList);
+      toc.appendChild(groupLi);
+
+      currentGroupList = groupList;
       continue;
     }
 
@@ -190,7 +240,7 @@ async function generateTOC() {
       loadMarkdown(chapterPath, idx);
     });
     li.appendChild(a);
-    toc.appendChild(li);
+    (currentGroupList || toc).appendChild(li);
   }
 }
 
